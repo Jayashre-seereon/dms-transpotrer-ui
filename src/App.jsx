@@ -7,7 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import ProfileSettings from "./pages/ProfileSettings";
 import Layout from "./pages/Layout";
 import RisedStatus from"./pages/RisedStatus";
-
+import LoadingAdvice from "./pages/LoadingAdvice";
 export default function App() {
   return (
     <AuthProvider>
@@ -27,7 +27,7 @@ export default function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/status" element={<RisedStatus />} />
             <Route path="/profile-settings"element={<ProfileSettings/>}/>  
-            
+            <Route path="/loading-advice"element={<LoadingAdvice />}/>  
              </Route>
         </Routes>
       </Router>

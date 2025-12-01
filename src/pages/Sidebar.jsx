@@ -7,6 +7,7 @@ import {
   RiseOutlined
   
 } from "@ant-design/icons";
+import {FaFileInvoice} from "react-icons/fa";
 import { NavLink, useLocation } from "react-router-dom";
 
 const { Sider } = Layout;
@@ -17,6 +18,7 @@ export default function Sidebar() {
   const menuItems = [
     { key: "/dashboard", label: "Dashboard", icon: <DashboardOutlined /> },
     { key: "/status", label: "Status Raised", icon: <BarChartOutlined /> },
+    { key: "/loading-advice", label: "Loading Advice", icon: <FaFileInvoice /> },
     { key: "/profile-settings", label: "Profile Settings", icon: <SettingOutlined /> },
     ];
 
