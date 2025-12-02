@@ -17,7 +17,7 @@ export default function Sidebar() {
      
   const menuItems = [
     { key: "/dashboard", label: "Dashboard", icon: <DashboardOutlined /> },
-    { key: "/status", label: "Status Raised", icon: <BarChartOutlined /> },
+    { key: "/status", label: "Loading Assign", icon: <BarChartOutlined /> },
     { key: "/loading-advice", label: "Loading Advice", icon: <FaFileInvoice /> },
     { key: "/profile-settings", label: "Profile Settings", icon: <SettingOutlined /> },
     ];

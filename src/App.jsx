@@ -8,6 +8,7 @@ import ProfileSettings from "./pages/ProfileSettings";
 import Layout from "./pages/Layout";
 import RisedStatus from"./pages/RisedStatus";
 import LoadingAdvice from "./pages/LoadingAdvice";
+
 export default function App() {
   return (
     <AuthProvider>
