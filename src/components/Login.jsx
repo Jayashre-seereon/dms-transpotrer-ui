@@ -47,7 +47,7 @@ export default function Login() {
         {/* Title */}
         <h2 className="text-xl font-bold text-amber-700">Transport Portal</h2>
         <p className="text-amber-600 mb-6">
-          Sign in to your transport management account
+          Sign in to your transport management account .
         </p>
 
      {alert && (
