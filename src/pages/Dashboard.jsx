@@ -14,11 +14,12 @@ import {
 
 // ---------------- Data ----------------
 const summary = [
-  { label: "Total Value", value: 150, icon: <DollarOutlined /> },
-  { label: "Pending Assignments", value: 124, icon: <ClockCircleOutlined /> },
-  { label: "In Transit", value: 121, icon: <TruckOutlined /> },
-  { label: "Delivered", value: 123, icon: <CalendarOutlined /> },
+  { label: "Total Value", value: 150, icon: <DollarOutlined className="text-amber-600!" /> },
+  { label: "Pending Assignments", value: 124, icon: <ClockCircleOutlined className="text-yellow-600!" /> },
+  { label: "In Transit", value: 121, icon: <TruckOutlined className="text-blue-600!" /> },
+  { label: "Delivered", value: 123, icon: <CalendarOutlined className="text-green-600!" /> },
 ];
+
 
 const shipmentStatusData = [
   { name: "Pending", value: 0.5 },
@@ -55,16 +56,20 @@ const recentShipments = [
 // ---------------- Reusable Components ----------------
 
 const SummaryCard = ({ label, value, icon }) => (
-  <Card className="rounded-xl! shadow-sm! border! border-amber-200!">
-    <p className="text-amber-500 text-xl font-bold">{label}</p>
-    <div className="flex items-center gap-40">
-      {React.cloneElement(icon, { className: "text-amber-700! text-2xl!" })}
-      <p className="text-lg font-semibold text-amber-700">
-        {label === "Total Value" ? `₹${(+value).toLocaleString()}` : value}
-      </p>
+  <Card className="rounded-xl shadow-sm border border-amber-200 w-60">
+    <div className="flex flex-col gap-2">
+      <p className="text-amber-500 text-base font-medium">{label}</p>
+
+      <div className="flex items-center gap-30">
+        {React.cloneElement(icon, { className: "text-amber-700 text-xl" })}
+        <p className="text-lg font-semibold text-amber-700 truncate">
+          {label === "Total Value" ? `₹${(+value).toLocaleString()}` : value}
+        </p>
+      </div>
     </div>
   </Card>
 );
+
 
 const columns = [
   { title: <span className="text-amber-600 font-semibold">Order No</span>, dataIndex: "id", render: t => <span className="text-amber-600 font-semibold">{t}</span> },
