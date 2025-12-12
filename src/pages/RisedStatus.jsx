@@ -36,6 +36,7 @@ const poJSON = {
       status: "Pending",
       vendorName: "Global Suppliers Co.",
       vendorAddress: "456 Commerce St, NY",
+      deliveryAddress: "Plant Gate A, Manufacturing Hub 1",
       vendorGSTIN: "GSTEB001",
       vendorContactPerson: "Alice Johnson",
       vendorPhoneNumber: "9876543210",
@@ -85,6 +86,8 @@ const poJSON = {
       status: "Approved",
       vendorName: "Local Steel Traders",
       vendorAddress: "789 Main Ave, TX",
+      deliveryAddress: "Plant Gate A, Manufacturing Hub 1",
+
       vendorGSTIN: "GSTLT002",
       vendorContactPerson: "Charles Davis",
       vendorPhoneNumber: "9988776655",
@@ -125,6 +128,8 @@ const poJSON = {
       status: "Out for Delivery",
       vendorName: "Chemicals Inc.",
       vendorAddress: "101 Lab Lane, MA",
+      deliveryAddress: "Plant Gate A, Manufacturing Hub 1",
+
       vendorGSTIN: "GSTCI003",
       vendorContactPerson: "Eve Fisher",
       vendorPhoneNumber: "9000111222",
@@ -165,6 +170,8 @@ const poJSON = {
       status: "Assigned",
       vendorName: "Polymer Supplies",
       vendorAddress: "321 Plastics Way, IL",
+      deliveryAddress: "Plant Gate A, Manufacturing Hub 1",
+
       vendorGSTIN: "GSTPS004",
       vendorContactPerson: "George Harris",
       vendorPhoneNumber: "9333444555",
@@ -273,6 +280,7 @@ export default function PurchaseOrderList() {
 
     return {
       ...record,
+      deliveryAddress: record.deliveryAddress || "",
       products,
       // convert dates to dayjs objects for DatePicker fields
       orderDate: record.orderDate ? dayjs(record.orderDate, "YYYY-MM-DD") : null,
@@ -634,6 +642,11 @@ export default function PurchaseOrderList() {
               <Select disabled={!isStatusEditable} options={statusOptionsToDisplay} />
             </Form.Item>
           </Col>
+          <Col span={6}>
+          <Form.Item label="Delivery Address" name="deliveryAddress">
+            <Input disabled />
+          </Form.Item>
+        </Col>
         </Row>
 
         <div className="text-base! font-semibold! m-0! text-amber-600!">Vendor Detail</div>
