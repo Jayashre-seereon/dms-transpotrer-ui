@@ -31,8 +31,9 @@ const loadingAdviceJSON = {
       adviceNo: "LA-2025-001",
       adviceDate: "2025-11-20",
       poNo: "PO-2025-001",
+      deliveryAddress: "Plant Gate A, Manufacturing Hub 1",
       wayBill: "WB123",
-      status: "Pending",
+      status: "In Transit",
       vendorName: "Global Suppliers Co.",
       vendorAddress: "456 Commerce St, NY",
       vendorGSTIN: "GSTEB001",
@@ -83,8 +84,9 @@ const loadingAdviceJSON = {
       adviceNo: "LA-2025-002",
       adviceDate: "2025-11-22",
       poNo: "PO-2025-002",
+      deliveryAddress: "Plant Gate B, Manufacturing Hub 1",
       wayBill: "WB456",
-      status: "Completed",
+      status: "In Transit",
       vendorName: "Local Steel Traders",
       vendorAddress: "789 Main Ave, TX",
       vendorGSTIN: "GSTLT002",
@@ -121,7 +123,9 @@ const loadingAdviceJSON = {
       ],
     },
   ],
-  statusOptions: ["Pending", "In Progress", "Completed", "Cancelled"],
+  statusOptions: ["In Transit",
+    "Out for Delivery",
+    "Delivered"],
   uomOptions: ["Kgs", "Pcs", "Ltrs", "Tons", "Meters"],
 };
 
@@ -175,13 +179,12 @@ export default function LoadingAdvice() {
     const base = "px-3 py-1 rounded-full font-semibold inline-block text-sm";
 
     switch (status) {
-      case "Pending":
-        return `${base} bg-yellow-100 text-yellow-700`;
-      case "In Progress":
+      
+      case "In Transit":
         return `${base} bg-blue-100 text-blue-700`;
-      case "Completed":
+      case "Out for Delivery":
         return `${base} bg-green-100 text-green-700`;
-      case "Cancelled":
+      case "Delivered":
         return `${base} bg-red-100 text-red-700`;
       default:
         return `${base} bg-gray-100 text-gray-700`;
@@ -810,7 +813,12 @@ export default function LoadingAdvice() {
                 name="wayBill"
                 rules={[{ required: true, message: "Required" }]}
               >
-                <Input />
+                <Input disabled/>
+              </Form.Item>
+            </Col>
+            <Col span={6}>
+              <Form.Item label="Delivery Address" name="deliveryAddress">
+                <Input disabled />
               </Form.Item>
             </Col>
             <Col span={6}>
