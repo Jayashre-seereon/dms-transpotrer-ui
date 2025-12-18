@@ -63,16 +63,24 @@ export default function Login() {
 
         <Form layout="vertical" onFinish={onFinish}>
           <Form.Item
-            label={<span className="text-amber-700 font-semibold">Email</span>}
-            name="email"
-            rules={[{ required: true, type: "email" }]}
-          >
-            <Input />
-          </Form.Item>
+  label="Email ID"
+  name="email"
+  rules={[
+    { required: true, message: "Email is required" },
+    { 
+      pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 
+      message: "Invalid email (example@email.com)" 
+    }
+  ]}
+>
+  <Input placeholder="example@email.com" />
+</Form.Item>
+
+
           <Form.Item
             label={<span className="text-amber-700 font-semibold">Password</span>}
             name="password"
-            rules={[{ required: true, min: 6 }]}
+            rules={[{ required: true, min: 6,message:"Please enter a valid 6-digit password" }]}
           >
             <Input.Password />
           </Form.Item>
@@ -97,8 +105,12 @@ export default function Login() {
         </Form>
 
         <div className="text-center">
-          <Link to="/signup">
-            <span className="text-amber-700 hover:underline">Sign Up</span>
+          Don't have an account?{" "}
+          <Link
+            to="/signup"
+            className="text-amber-600  hover:underline"
+          >
+            Sign Up
           </Link>
         </div>
       </div>
